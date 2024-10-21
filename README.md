@@ -1,2 +1,2 @@
 # cinema-management-system-java
-Projeto de programação orientada a objetos - 2024
+Object-Oriented Programming (OOP) Project with Java
