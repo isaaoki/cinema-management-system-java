@@ -29,6 +29,12 @@ public class Filme {
         nroFilmes++;
     }
 
+    // verificar se eh necessario
+    public void decrementaFilmes() {
+        nroFilmes--;
+    }
+    
+    // metodos get e set
     public void setNomeFilme(String nomeFilme) {
         this.nomeFilme = nomeFilme;
     }
@@ -83,11 +89,6 @@ public class Filme {
     
     public int getNroFilmes() {
         return nroFilmes;
-    }
-    
-    // Verificar se eh necessário
-    public void decrementaFilmes() {
-        nroFilmes--;
-    }
+    } 
     
 }

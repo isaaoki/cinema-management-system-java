@@ -11,18 +11,49 @@ package com.test.projetopoo;
 
 public class Sessao {
     private Filme filme;
-    private Sala sala; // ?????????????
+    private Sala sala;
     private int codigoSessao; // verificar se eh necessario
-    private String dataSessao;
+    private String diaSessao;
     private String horarioSessao; // mudar para tipo data? ou criar uma classe horario?
     boolean[] arrayAssentos;
     
-    public Sessao(int codigoSessao, String dataSessao, String horarioSessao, int nroAssentos) {
+    public Sessao(Filme filme, Sala sala, int codigoSessao, String diaSessao, String horarioSessao, int nroAssentos) {
+        this.filme = filme;
+        this.sala = sala;
+        
         setCodigoSessao(codigoSessao);
+        setDiaSessao(diaSessao);
         setHorarioSessao(horarioSessao);
         
         arrayAssentos = new boolean[nroAssentos];
     } 
+    
+    // muda assento para indisponivel
+    public boolean setAssentoIndisponivel(int nroAssento) {
+        if (arrayAssentos[nroAssento] == false) { // assento desocupado
+            arrayAssentos[nroAssento] = true;
+            return true;
+        }
+        else { // assento ocupado
+            return false;
+        }
+    }
+    
+    public void setFilme(Filme filme) {
+        this.filme = filme;
+    }
+    
+    public Filme getFilme() {
+        return this.filme;
+    }
+    
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+    
+    public Sala getSala() {
+        return this.sala;
+    }
     
     public void setCodigoSessao(int codigoSessao) {
         this.codigoSessao = codigoSessao;
@@ -32,12 +63,12 @@ public class Sessao {
         return this.codigoSessao;
     }
     
-    public void setDataSessao(String dataSessao) {
-        this.dataSessao = dataSessao;
+    public void setDiaSessao(String diaSessao) {
+        this.diaSessao = diaSessao;
     }
     
-    public String getDataSessao() {
-        return this.dataSessao;
+    public String getDiaSessao() {
+        return this.diaSessao;
     }
     
     public void setHorarioSessao(String horarioSessao) {
@@ -50,17 +81,6 @@ public class Sessao {
     
     public boolean[] getArrayAssentos() {
         return this.arrayAssentos;
-    }
-    
-    // torna assento indisponivel
-    public boolean setAssentoIndisponivel(int nroAssento) {
-        if (arrayAssentos[nroAssento] == false) { // assento desocupado
-            arrayAssentos[nroAssento] = true;
-            return true;
-        }
-        else { // assento ocupado retorna falso
-            return false;
-        }
     }
     
 }

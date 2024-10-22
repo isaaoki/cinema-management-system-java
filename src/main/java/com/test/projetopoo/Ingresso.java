@@ -10,35 +10,15 @@ package com.test.projetopoo;
  */
 
 public class Ingresso {
-    private Filme filme;
-    private Sala sala;
     private Sessao sessao;
     private int nroAssento;
     private double precoIngresso;
     
-    public Ingresso(Filme filme, Sessao sessao, Sala sala, int nroAssento, double precoIngresso) {
-        this.filme = filme;
+    public Ingresso(Sessao sessao, int nroAssento, double precoIngresso) {
         this.sessao = sessao;
-        this.sala = sala;
-        
         this.nroAssento = nroAssento;
         this.precoIngresso = precoIngresso;
     }
-    
-    public void setFilme(Filme filme) {
-        this.filme = filme;
-    } 
-    
-    public Filme getFilme() {
-        return this.filme;
-    } 
-    
-    public void setSala(Sala sala) {
-        this.sala = sala;
-    } 
-    public Sala getSaa() {
-        return this.sala;
-    } 
     
     public void setSessao(Sessao sessao) {
         this.sessao = sessao;
@@ -66,9 +46,9 @@ public class Ingresso {
     
     @Override
     public String toString() {
-        return "Filme: " + filme.getNomeFilme() + 
-               " - Data: " + sessao.getDataSessao() + " " + sessao.getHorarioSessao() + 
-               " - Sala: " + sala.getNroSala() + 
+        return "Filme: " + sessao.getFilme().getNomeFilme() + 
+               " - Data: " + sessao.getDiaSessao() + " " + sessao.getHorarioSessao() + 
+               " - Sala: " + sessao.getSala().getNroSala() + 
                " - Poltrona: " + getNroAssento() + 
                " - Preço: " + getPrecoIngresso();
     }
