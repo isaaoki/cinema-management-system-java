@@ -14,16 +14,15 @@ public class Filme {
     private String sinopseFilme;
     private int classificacaoFilme;
     private String generoFilme;
-    private double precoFilme;
     private int duracaoFilme;
     private static int nroFilmes;
 
-    public Filme(String nomeFilme, String sinopseFilme, int classificacaoFilme, String generoFilme, double precoFilme, int duracaoFilme) {
+    public Filme(String nomeFilme, String sinopseFilme, int classificacaoFilme, String generoFilme, int duracaoFilme) {
+        
         setNomeFilme(nomeFilme);
         setSinopseFilme(sinopseFilme);
         setClassificacaoFilme(classificacaoFilme);
         setGeneroFilme(generoFilme);
-        setPrecoFilme(precoFilme);
         setDuracaoFilme(duracaoFilme);
 
         nroFilmes++;
@@ -32,6 +31,15 @@ public class Filme {
     // verificar se eh necessario
     public void decrementaFilmes() {
         nroFilmes--;
+    }
+    
+    @Override
+    public String toString() {
+        return "Filme: " + getNomeFilme() + 
+               "\n- Sinopse: " + getSinopseFilme() + 
+               "\n- Classificacao Indicativa: " + getClassificacaoFilme() +
+               "\n- Genero: " + getGeneroFilme() + 
+               "\n- Duracao: " + getDuracaoFilme();
     }
     
     // metodos get e set
@@ -71,14 +79,6 @@ public class Filme {
         return this.generoFilme;
     }
 
-    public void setPrecoFilme(double precoFilme) {
-        this.precoFilme = precoFilme;
-    }
-
-    public double getPrecoFilme() {
-        return this.precoFilme;
-    }
-
     public void setDuracaoFilme(int duracaoFilme) {
         this.duracaoFilme = duracaoFilme;
     }
@@ -86,9 +86,5 @@ public class Filme {
     public int getDuracaoFilme() {
         return this.duracaoFilme;
     }
-    
-    public int getNroFilmes() {
-        return nroFilmes;
-    } 
     
 }

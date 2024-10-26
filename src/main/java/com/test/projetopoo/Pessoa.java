@@ -9,40 +9,42 @@ package com.test.projetopoo;
  * @author isasu
  */
 
-public abstract class Pessoa {
-    private String nome;
-    private String email;
-    private String senha;
-    
-    public Pessoa(String nome, String email, String senha) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
+public class Pessoa {
+
+    private String nomePessoa; 
+    private String loginPessoa; 
+    private String senhaPessoa;
+	
+    public Pessoa(String nome, String login, String senha) { 
+	
+        setNomePessoa(nome); 
+        setLoginPessoa(login); 
+        setSenhaPessoa(senha); 		
+		
+    }
+	
+    public void setNomePessoa (String nomePessoa) {
+        this.nomePessoa = nomePessoa; 
     }
     
-    // checar modificadores de acesso
-    
-    public void setNome(String nome) {
-        this.nome = nome;
+    public String getNomePessoa() {
+        return nomePessoa; 
+    }
+	
+    public void setLoginPessoa (String loginPessoa) {
+        this.loginPessoa = loginPessoa; 
     }
     
-    public String getNome() {
-        return this.nome;
+    public String getLoginPessoa() {
+        return loginPessoa;
     }
-    
-    public void setEmail(String email) {
-        this.email = email;
+	
+    public void setSenhaPessoa (String senhaPessoa) {
+        this.senhaPessoa = senhaPessoa;
     }
-    
-    public String getEmail() {
-        return this.email;
+
+    public String getSenhaPessoa() {
+        return senhaPessoa;
     }
-    
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-    
-    public String getSenha() {
-        return this.senha;
-    }
+		
 }

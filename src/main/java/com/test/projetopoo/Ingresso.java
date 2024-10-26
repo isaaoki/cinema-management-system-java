@@ -46,9 +46,9 @@ public class Ingresso {
     
     @Override
     public String toString() {
-        return "Filme: " + sessao.getFilme().getNomeFilme() + 
+        return "Filme: " + sessao.getFilmeSessao().getNomeFilme() + 
                " - Data: " + sessao.getDiaSessao() + " " + sessao.getHorarioSessao() + 
-               " - Sala: " + sessao.getSala().getNroSala() + 
+               " - Sala: " + sessao.getSalaSessao().getNroSala() + 
                " - Poltrona: " + getNroAssento() + 
                " - Preço: " + getPrecoIngresso();
     }

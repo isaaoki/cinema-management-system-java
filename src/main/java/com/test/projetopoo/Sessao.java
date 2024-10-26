@@ -10,20 +10,22 @@ package com.test.projetopoo;
  */
 
 public class Sessao {
-    private Filme filme;
-    private Sala sala;
+    private Filme filmeSessao;
+    private Sala salaSessao;
     private int codigoSessao; // verificar se eh necessario
     private String diaSessao;
     private String horarioSessao; // mudar para tipo data? ou criar uma classe horario?
+    private double precoSessao;
     boolean[] arrayAssentos;
     
-    public Sessao(Filme filme, Sala sala, int codigoSessao, String diaSessao, String horarioSessao, int nroAssentos) {
-        this.filme = filme;
-        this.sala = sala;
+    public Sessao(Filme filmeSessao, Sala salaSessao, int codigoSessao, String diaSessao, String horarioSessao, double precoSessao, int nroAssentos) {
+        this.filmeSessao = filmeSessao;
+        this.salaSessao = salaSessao;
         
         setCodigoSessao(codigoSessao);
         setDiaSessao(diaSessao);
         setHorarioSessao(horarioSessao);
+        setPrecoSessao(precoSessao);
         
         arrayAssentos = new boolean[nroAssentos];
     } 
@@ -39,20 +41,20 @@ public class Sessao {
         }
     }
     
-    public void setFilme(Filme filme) {
-        this.filme = filme;
+    public void setFilmeSessao(Filme filmeSessao) {
+        this.filmeSessao = filmeSessao;
     }
     
-    public Filme getFilme() {
-        return this.filme;
+    public Filme getFilmeSessao() {
+        return this.filmeSessao;
     }
     
-    public void setSala(Sala sala) {
-        this.sala = sala;
+    public void setSalaSessao(Sala salaSessao) {
+        this.salaSessao = salaSessao;
     }
     
-    public Sala getSala() {
-        return this.sala;
+    public Sala getSalaSessao() {
+        return this.salaSessao;
     }
     
     public void setCodigoSessao(int codigoSessao) {
@@ -77,6 +79,14 @@ public class Sessao {
     
     public String getHorarioSessao() {
         return this.horarioSessao;
+    }
+    
+    public void setPrecoSessao(double precoSessao) {
+        this.precoSessao = precoSessao;
+    }
+    
+    public double getPrecoSessao() {
+        return this.precoSessao;
     }
     
     public boolean[] getArrayAssentos() {

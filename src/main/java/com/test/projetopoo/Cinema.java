@@ -13,13 +13,12 @@ import java.util.ArrayList;
 
 public class Cinema {
     private String nomeCinema;
-    
     private ArrayList<Filme> listaFilmes;
     private ArrayList<Sala> listaSalas;
     private ArrayList<Sessao> listaSessoes;
     
     public Cinema(String nomeCinema) {
-        this.nomeCinema = nomeCinema;
+        setNomeCinema(nomeCinema);
         
         listaFilmes = new ArrayList<>();
         listaSalas = new ArrayList<>();

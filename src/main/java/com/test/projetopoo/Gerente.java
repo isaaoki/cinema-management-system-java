@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.test.projetopoo;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,13 +14,29 @@ public class Gerente extends Pessoa {
     private Cinema cinema;
     private Usuario[] arrayUsuarios;
 
-    public Gerente(String nome, String email, String senha, Cinema cinema, Usuario[] arrayUsuarios) {
-        super(nome, email, senha);
+    public Gerente(String nome, String login, String senha, Cinema cinema, Usuario[] arrayUsuarios) {
+        super(nome, login, senha);
         this.cinema = cinema;
         this.arrayUsuarios = arrayUsuarios;
     }
     
-    public boolean adicionaFilme(String nomeFilme, String sinopseFilme, int classificacaoFilme, String generoFilme, double precoFilme, int duracaoFilme) {
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
+    }
+    
+    public Cinema getCinema() {
+        return this.cinema;
+    }
+    
+    public void setArrayUsuarios(Usuario[] arrayUsuarios) {
+        this.arrayUsuarios = arrayUsuarios;
+    }
+
+    public Usuario[] getArrayUsuarios() {
+        return this.arrayUsuarios;
+    }
+    
+    public boolean adicionaFilme(String nomeFilme, String sinopseFilme, int classificacaoFilme, String generoFilme, int duracaoFilme) {
         
         for (Filme f : cinema.getListaFilmes()) {
             if (f.getNomeFilme().equals(nomeFilme)) {
@@ -28,12 +45,13 @@ public class Gerente extends Pessoa {
             }
         }
         
-        cinema.getListaFilmes().add(new Filme(nomeFilme, sinopseFilme, classificacaoFilme, generoFilme, precoFilme, duracaoFilme));
+        cinema.getListaFilmes().add(new Filme(nomeFilme, sinopseFilme, classificacaoFilme, generoFilme, duracaoFilme));
         return true;
         
     }
     
-    public boolean editarFilme(String nomeFilme, String nomeNovo, String sinopseNova, int classificacaoNova, String generoNovo, double precoNovo, int duracaoNova) {
+    // checar se consigo fazer de forma mais genérica
+    public boolean editarFilme(String nomeFilme, String nomeNovo, String sinopseNova, int classificacaoNova, String generoNovo, int duracaoNova) {
         
         for (Filme f : cinema.getListaFilmes()) {
             if (f.getNomeFilme().equals(nomeFilme)) {
@@ -43,16 +61,13 @@ public class Gerente extends Pessoa {
                 else if (!sinopseNova.equals("")) {
                     f.setSinopseFilme(sinopseNova);
                 }
-                else if (classificacaoNova == -1) { // int n aceita null e estamos usando um valor 0, ent usaremos de -1
+                else if (classificacaoNova != -1) { // int n aceita null e estamos usando um valor 0, ent usaremos de -1
                     f.setClassificacaoFilme(classificacaoNova);
                 }
                 else if (!generoNovo.equals("")) {
                     f.setGeneroFilme(generoNovo);
                 }
-                else if (precoNovo != 0.0) {
-                    f.setPrecoFilme(precoNovo);
-                }
-                else if (duracaoNova != 0) {
+                else if (duracaoNova != -1) {
                     f.setDuracaoFilme(duracaoNova);
                 }
                 return true;
@@ -77,7 +92,5 @@ public class Gerente extends Pessoa {
         return false;
         
     }
-    
-    
     
 }

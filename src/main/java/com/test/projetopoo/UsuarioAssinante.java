@@ -8,15 +8,15 @@ package com.test.projetopoo;
  *
  * @author isasu
  */
-public class UsuarioAssinante extends UsuarioNaoAssinante {
+public class UsuarioAssinante extends Usuario {
     
-    public UsuarioAssinante(String nome, String email, String senha, int idade) {
-        super(nome, email, senha, idade);
+    public UsuarioAssinante(String nome, String login, String senha, int idade) {
+        super(nome, login, senha, idade);
     }
     
     @Override
-    public double getPrecoIngresso() {
-        return 25.0;
+    public double getPrecoIngresso(Sessao sessao) {
+        return 0.7 * super.getPrecoIngresso(sessao);
     }
     
 }
