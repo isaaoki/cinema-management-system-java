@@ -1,11 +1,11 @@
 com\test\projetopoo\Filme.class
 com\test\projetopoo\Main.class
+com\test\projetopoo\FilmeIndisponivel.class
 com\test\projetopoo\Usuario.class
 com\test\projetopoo\UsuarioAssinante.class
 com\test\projetopoo\Ingresso.class
 com\test\projetopoo\Pessoa.class
 com\test\projetopoo\Cinema.class
 com\test\projetopoo\Gerente.class
-com\test\projetopoo\UsuarioNaoAssinante.class
 com\test\projetopoo\Sala.class
 com\test\projetopoo\Sessao.class

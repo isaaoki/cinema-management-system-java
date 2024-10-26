@@ -9,6 +9,7 @@ import java.util.ArrayList;
  *
  * @author isasu
  */
+
 public class Usuario extends Pessoa {
     private int idadePessoa;
     private boolean assinaturaPessoa;

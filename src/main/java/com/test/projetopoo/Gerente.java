@@ -39,8 +39,7 @@ public class Gerente extends Pessoa {
     public boolean adicionaFilme(String nomeFilme, String sinopseFilme, int classificacaoFilme, String generoFilme, int duracaoFilme) {
         
         for (Filme f : cinema.getListaFilmes()) {
-            if (f.getNomeFilme().equals(nomeFilme)) {
-                System.out.println("Filme já existe: " + nomeFilme);
+            if (f.getNomeFilme().equalsIgnoreCase(nomeFilme)) {
                 return false;
             }
         }
@@ -54,7 +53,7 @@ public class Gerente extends Pessoa {
     public boolean editarFilme(String nomeFilme, String nomeNovo, String sinopseNova, int classificacaoNova, String generoNovo, int duracaoNova) {
         
         for (Filme f : cinema.getListaFilmes()) {
-            if (f.getNomeFilme().equals(nomeFilme)) {
+            if (f.getNomeFilme().equalsIgnoreCase(nomeFilme)) {
                 if (!nomeNovo.equals("")) {
                     f.setNomeFilme(nomeNovo);
                 }
@@ -78,11 +77,15 @@ public class Gerente extends Pessoa {
         return false;
     }
     
-    public boolean removerFilme(String nomeFilme) {
+    public boolean removerFilme(String nomeFilme, String motivoExclusaoFilme) {
         
         for (Filme f : cinema.getListaFilmes()) {
-            if (f.getNomeFilme().equals(nomeFilme)) {
-                cinema.getListaFilmes().remove(f); // nao sei se isso funciona
+            if (f.getNomeFilme().equalsIgnoreCase(nomeFilme) && !(f instanceof FilmeIndisponivel)) {
+                int index = cinema.getListaFilmes().indexOf(f);
+               
+                FilmeIndisponivel filmeIndisponivel = new FilmeIndisponivel(f.getNomeFilme(), f.getSinopseFilme(), f.getClassificacaoFilme(), f.getGeneroFilme(), f.getDuracaoFilme(), motivoExclusaoFilme);
+                cinema.getListaFilmes().set(index, filmeIndisponivel);
+                
                 System.out.println("Filme " + nomeFilme + " removido com sucesso");
                 return true;
             }

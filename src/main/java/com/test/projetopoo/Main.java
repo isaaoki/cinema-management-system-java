@@ -282,12 +282,15 @@ public class Main {
     
     public static void imprimeMenuGerenteRemocaoFilme(Gerente gerente, Scanner sc) {
         String nomeFilme;
+        String motivoExclusaoFilme;
         
         System.out.println("REMOCAO DE FILME");
         System.out.printf("Digite o nome do filme a ser removido: ");
         nomeFilme = sc.nextLine();
+        System.out.printf("Digite o motivo de exclusao do filme: ");
+        motivoExclusaoFilme = sc.nextLine();
         
-        if (gerente.removerFilme(nomeFilme)) {
+        if (gerente.removerFilme(nomeFilme, motivoExclusaoFilme)) {
             System.out.println("Remocao com sucesso");
         }
         else {
@@ -302,8 +305,10 @@ public class Main {
         System.out.println("Lista de Filmes!");
         
         for (Filme filme : cinema.getListaFilmes()) {
-            System.out.println(filme.toString());
-            System.out.println();
+            if (!(filme instanceof FilmeIndisponivel)) {
+                System.out.println(filme.toString());
+                System.out.println();
+            }
         }
     }
     
