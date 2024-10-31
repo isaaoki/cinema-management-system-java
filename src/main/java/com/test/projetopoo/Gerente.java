@@ -3,14 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.test.projetopoo;
-import java.util.ArrayList;
-
 /**
  *
  * @author isasu
  */
 
 public class Gerente extends Pessoa {
+
     private Cinema cinema;
     private Usuario[] arrayUsuarios;
 
@@ -86,7 +85,7 @@ public class Gerente extends Pessoa {
                 FilmeIndisponivel filmeIndisponivel = new FilmeIndisponivel(f.getNomeFilme(), f.getSinopseFilme(), f.getClassificacaoFilme(), f.getGeneroFilme(), f.getDuracaoFilme(), motivoExclusaoFilme);
                 cinema.getListaFilmes().set(index, filmeIndisponivel);
                 
-                System.out.println("Filme " + nomeFilme + " removido com sucesso");
+                System.out.println("Filme " + nomeFilme + " indisponibilizado com sucesso");
                 return true;
             }
         }

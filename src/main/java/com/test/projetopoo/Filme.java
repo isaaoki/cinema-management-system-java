@@ -15,7 +15,6 @@ public class Filme {
     private int classificacaoFilme;
     private String generoFilme;
     private int duracaoFilme;
-    private static int nroFilmes;
 
     public Filme(String nomeFilme, String sinopseFilme, int classificacaoFilme, String generoFilme, int duracaoFilme) {
         
@@ -25,12 +24,6 @@ public class Filme {
         setGeneroFilme(generoFilme);
         setDuracaoFilme(duracaoFilme);
 
-        nroFilmes++;
-    }
-
-    // verificar se eh necessario
-    public void decrementaFilmes() {
-        nroFilmes--;
     }
     
     @Override

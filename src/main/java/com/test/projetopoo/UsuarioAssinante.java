@@ -20,3 +20,4 @@ public class UsuarioAssinante extends Usuario {
     }
     
 }
+

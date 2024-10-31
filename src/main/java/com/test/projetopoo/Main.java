@@ -5,7 +5,6 @@
 package com.test.projetopoo;
 
 import java.util.Scanner;
-import java.util.*;
 
 /**
  *

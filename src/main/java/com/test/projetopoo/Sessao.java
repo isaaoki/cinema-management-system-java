@@ -18,7 +18,7 @@ public class Sessao {
     private double precoSessao;
     boolean[] arrayAssentos;
     
-    public Sessao(Filme filmeSessao, Sala salaSessao, int codigoSessao, String diaSessao, String horarioSessao, double precoSessao, int nroAssentos) {
+    public Sessao(Filme filmeSessao, Sala salaSessao, int codigoSessao, String diaSessao, String horarioSessao, double precoSessao) {
         this.filmeSessao = filmeSessao;
         this.salaSessao = salaSessao;
         
@@ -27,7 +27,7 @@ public class Sessao {
         setHorarioSessao(horarioSessao);
         setPrecoSessao(precoSessao);
         
-        arrayAssentos = new boolean[nroAssentos];
+        arrayAssentos = new boolean[salaSessao.getNroAssentos()];
     } 
     
     // muda assento para indisponivel
