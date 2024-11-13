@@ -1,4 +1,4 @@
-package main.java.com.test.projetopoo;
+package com.test.projetopoo;
 import java.time.LocalDateTime;
 
 public class SessaoIndisponivel extends Sessao{
