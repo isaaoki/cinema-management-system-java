@@ -1,48 +1,48 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.test.projetopoo;
-
-/**
- *
- * @author isasu
- */
+package main.java.com.test.projetopoo;
 
 public class Sala {
     private int nroSala;
     private int nroAssentos;
-    private boolean tipoTela;
+    private boolean tipoTela; // 2D = false ou 3D = true 
     
-    public Sala(int nroSala, int nroAssentos, boolean tipoTela) {
-       setNroSala(nroSala);
-       setNroAssentos(nroAssentos);
-       setTipoTela(tipoTela);
+    public Sala(int nroSala, int nroAssentos, boolean tipoTela){
+        setNroSala(nroSala);
+        setNroAssentos(nroAssentos);
+        setTipoTela(tipoTela);
     }
     
-    public void setNroSala(int nroSala) {
+    //Get e Set: nroSala
+    public void setNroSala(int nroSala){
         this.nroSala = nroSala;
     }
-    
-    public int getNroSala() {
+
+    public int getNroSala(){
         return this.nroSala;
     }
     
-    public void setNroAssentos(int nroAssentos) {
+    //Get e Set: nroAssentos
+    public void setNroAssentos(int nroAssentos){
         this.nroAssentos = nroAssentos;
     }
     
-    public int getNroAssentos() {
+    public int getNroAssentos(){
         return this.nroAssentos;
     }
-    
-    public void setTipoTela(boolean tipoTela) {
+   
+    //Get e Set: tipoTela
+    public void setTipoTela(boolean tipoTela){
         this.tipoTela = tipoTela;
     }
-    
-    public boolean getTipoTela() {
+
+    public boolean getTipoTela(){
         return this.tipoTela;
     }
     
+    @Override
+    public String toString() {
+        return "Sala " + getNroSala() + 
+               " | Numero de Assentos: " + getNroAssentos() + 
+               " | Tipo de Tela: " + (this.tipoTela ? "3D" : "2D");
+    }
+    
 }
-

@@ -1,41 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.test.projetopoo;
-
-/**
- *
- * @author isasu
- */
+package main.java.com.test.projetopoo;
 
 public class Filme {
+
     private String nomeFilme;
     private String sinopseFilme;
     private int classificacaoFilme;
     private String generoFilme;
     private int duracaoFilme;
 
-    public Filme(String nomeFilme, String sinopseFilme, int classificacaoFilme, String generoFilme, int duracaoFilme) {
-        
+    public Filme (String nomeFilme, String sinopseFilme, int classificacaoFilme, String generoFilme, int duracaoFilme) {
         setNomeFilme(nomeFilme);
         setSinopseFilme(sinopseFilme);
         setClassificacaoFilme(classificacaoFilme);
         setGeneroFilme(generoFilme);
         setDuracaoFilme(duracaoFilme);
+    }
 
-    }
-    
-    @Override
-    public String toString() {
-        return "Filme: " + getNomeFilme() + 
-               "\n- Sinopse: " + getSinopseFilme() + 
-               "\n- Classificacao Indicativa: " + getClassificacaoFilme() +
-               "\n- Genero: " + getGeneroFilme() + 
-               "\n- Duracao: " + getDuracaoFilme();
-    }
-    
-    // metodos get e set
     public void setNomeFilme(String nomeFilme) {
         this.nomeFilme = nomeFilme;
     }
@@ -80,4 +60,13 @@ public class Filme {
         return this.duracaoFilme;
     }
     
+    @Override
+    public String toString() {
+        return "Filme: " + getNomeFilme() + 
+                " | " + getClassificacaoFilme() + 
+                " | " + getGeneroFilme() + 
+                " | " + getDuracaoFilme() + "m" + "\n" +
+                "- Sinopse: " + getSinopseFilme();
+    }
+
 }

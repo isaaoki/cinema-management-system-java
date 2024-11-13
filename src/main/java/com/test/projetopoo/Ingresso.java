@@ -1,13 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.test.projetopoo;
-
-/**
- *
- * @author isasu
- */
+package main.java.com.test.projetopoo;
 
 public class Ingresso {
     private Sessao sessao;
@@ -15,11 +6,11 @@ public class Ingresso {
     private double precoIngresso;
     
     public Ingresso(Sessao sessao, int nroAssento, double precoIngresso) {
-        this.sessao = sessao;
-        this.nroAssento = nroAssento;
-        this.precoIngresso = precoIngresso;
+        setSessao(sessao);
+        setNroAssento(nroAssento);;
+        setPrecoIngresso(precoIngresso);;
     }
-    
+
     public void setSessao(Sessao sessao) {
         this.sessao = sessao;
     }
@@ -45,11 +36,11 @@ public class Ingresso {
     }
     
     @Override
-    public String toString() {
-        return "Filme: " + sessao.getFilmeSessao().getNomeFilme() + 
-               " - Data: " + sessao.getDiaSessao() + " " + sessao.getHorarioSessao() + 
-               " - Sala: " + sessao.getSalaSessao().getNroSala() + 
-               " - Poltrona: " + getNroAssento() + 
-               " - Preço: " + getPrecoIngresso();
+    public String toString() { // podemos mudar para adequar layout da main
+        return "- Filme: " + sessao.getFilmeSessao().getNomeFilme() + 
+               " | Data: " + sessao.getDiaSessao() + " " + sessao.getHorarioSessao() + 
+               " | Sala: " + sessao.getSalaSessao().getNroSala() + 
+               " | Poltrona: " + getNroAssento() + 
+               " | Preço: R$" + getPrecoIngresso();
     }
 }
