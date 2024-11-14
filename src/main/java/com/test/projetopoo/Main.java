@@ -826,9 +826,7 @@ public class Main {
         else {
             System.out.println("Filme nao encontrado");
         }
-
         System.out.println();
-
     }
 
     public static void imprimeMenuGerenteEdicaoSessao(Gerente gerente, Scanner sc) {
@@ -920,7 +918,7 @@ public class Main {
                         
                     if (confirmacao.equalsIgnoreCase("Sim")) {
                         if (!(gerente.editarSessao(sessao, diaSessao, null, -1, null, null))) {
-                            System.out.println("Erro ao editar sessao. Intervalo de horario coincide com o de outra sessao...");
+                            System.out.println("Erro ao editar sessao. Intervalo de horario coincide com o de outra sessao.");
                         }
                     }
                     break;
@@ -939,7 +937,7 @@ public class Main {
                         
                     if (confirmacao.equalsIgnoreCase("Sim")) {
                         if (!(gerente.editarSessao(sessao, null, horarioSessao, -1, null, null))) {
-                            System.out.println("Erro ao editar sessao. Intervalo de horario coincide com o de outra sessao...");
+                            System.out.println("Erro ao editar sessao. Intervalo de horario coincide com o de outra sessao.");
                         }
                     }
                     break;

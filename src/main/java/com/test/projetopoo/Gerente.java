@@ -152,7 +152,7 @@ public class Gerente extends Pessoa{
         
     }
 
-    // método para adicionar sessao ao ArrayList
+    // método para adicionar sessao ao arraylist
     public boolean adicionarSessao(Sessao sessao) {
         LocalDateTime inicioSessaoNova = sessao.getDiaHorarioSessao();
         LocalDateTime finalSessaoNova = inicioSessaoNova.plusMinutes(sessao.getFilmeSessao().getDuracaoFilme());
@@ -190,13 +190,18 @@ public class Gerente extends Pessoa{
         else if (filmeSessaoNovo != null) { 
             sessao.setFilmeSessao(filmeSessaoNovo);
         }
-        else if (diaSessaoNovo != null) { // checa se mudança de dia possui o mesmo intervalo de horario que outra sessao
-            LocalDateTime inicioSessaNovo = diaSessaoNovo.atTime(sessao.getHorarioSessao());
-            LocalDateTime finalSessaoNovo = inicioSessaNovo.plusMinutes(sessao.getFilmeSessao().getDuracaoFilme());
+
+        // checa se mudança de dia possui o mesmo intervalo de horario que outra sessao
+        else if (diaSessaoNovo != null) {
+            LocalDateTime inicioSessaoNova = diaSessaoNovo.atTime(sessao.getHorarioSessao());
+            LocalDateTime finalSessaoNova = inicioSessaoNova.plusMinutes(sessao.getFilmeSessao().getDuracaoFilme());
 
             for (Sessao s : getCinema().getListaSessoes()) {
                 if (sessao.getSalaSessao() == s.getSalaSessao() && diaSessaoNovo == s.getDiaSessao()) {
-                    if (checarIntervaloHorario(inicioSessaNovo, finalSessaoNovo, s.getDiaHorarioSessao(), s.getDiaHorarioSessao().plusMinutes(s.getFilmeSessao().getDuracaoFilme()))) {
+                    LocalDateTime inicioSessao = s.getDiaHorarioSessao();
+                    LocalDateTime finalSessao = inicioSessao.plusMinutes(s.getFilmeSessao().getDuracaoFilme()); 
+
+                    if (checarIntervaloHorario(inicioSessaoNova, finalSessaoNova, inicioSessao, finalSessao)) {
                         return false;
                     }
                 }
@@ -204,13 +209,17 @@ public class Gerente extends Pessoa{
 
             sessao.setDiaSessao(diaSessaoNovo);
         }
-        else if (horarioSessaoNovo != null) { // checa se mudança de horario possui o mesmo intervalo de horario que outra sessao
-            LocalDateTime inicioSessaNovo = horarioSessaoNovo.atDate(sessao.getDiaSessao());
-            LocalDateTime finalSessaoNovo = inicioSessaNovo.plusMinutes(sessao.getFilmeSessao().getDuracaoFilme());
+        // checa se mudança de horario possui o mesmo intervalo de horario que outra sessao
+        else if (horarioSessaoNovo != null) { 
+            LocalDateTime inicioSessaoNova = horarioSessaoNovo.atDate(sessao.getDiaSessao());
+            LocalDateTime finalSessaoNova = inicioSessaoNova.plusMinutes(sessao.getFilmeSessao().getDuracaoFilme());
 
             for (Sessao s : getCinema().getListaSessoes()) {
-                if (sessao.getSalaSessao() == s.getSalaSessao() && diaSessaoNovo == s.getDiaSessao()) {
-                    if (checarIntervaloHorario(inicioSessaNovo, finalSessaoNovo, s.getDiaHorarioSessao(), s.getDiaHorarioSessao().plusMinutes(s.getFilmeSessao().getDuracaoFilme()))) {
+                if (sessao.getSalaSessao() == s.getSalaSessao() && sessao.getDiaSessao() == s.getDiaSessao()) {
+                    LocalDateTime inicioSessao = s.getDiaHorarioSessao();
+                    LocalDateTime finalSessao = inicioSessao.plusMinutes(s.getFilmeSessao().getDuracaoFilme()); 
+
+                    if (checarIntervaloHorario(inicioSessaoNova, finalSessaoNova, inicioSessao, finalSessao)) {
                         return false;
                     }
                 }
@@ -222,6 +231,7 @@ public class Gerente extends Pessoa{
         return true;    
     }
 
+    // metodo para remover sessao
     public boolean removerSessao(Sessao sessao, String motivoExclusaoSessao) {
         if (!(sessao instanceof SessaoIndisponivel)) {
             int index = cinema.getListaSessoes().indexOf(sessao);
@@ -245,7 +255,6 @@ public class Gerente extends Pessoa{
     }
 
     private boolean checarIntervaloHorario(LocalDateTime inicioSessaoNova, LocalDateTime finalSessaoNova, LocalDateTime inicioSessao, LocalDateTime finalSessao) {
-        
         // checa se horarios de inicio são iguais
         if (inicioSessaoNova.equals(inicioSessao)) { // correct!!
             return true;
